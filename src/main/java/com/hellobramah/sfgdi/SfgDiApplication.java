@@ -1,9 +1,6 @@
 package com.hellobramah.sfgdi;
 
-import com.hellobramah.sfgdi.controllers.ConstructorInjectedController;
-import com.hellobramah.sfgdi.controllers.MyController;
-import com.hellobramah.sfgdi.controllers.PropertyInjectedController;
-import com.hellobramah.sfgdi.controllers.SetterInjectedController;
+import com.hellobramah.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +12,8 @@ public class SfgDiApplication {
 
 		ApplicationContext appCon =SpringApplication.run(SfgDiApplication.class, args);
 		MyController myController = (MyController) appCon.getBean("myController");
+		I18nController i18nController = (I18nController) appCon.getBean("i18nController");
+		System.out.println(i18nController.getGreeting());
 		String greet = myController.greetings();
 		System.out.println(greet);
 
